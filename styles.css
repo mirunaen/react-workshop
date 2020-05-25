@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 button {
   font-size: 18px;
   padding: 10px;
@@ -9,4 +13,13 @@ button {
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+div {
+  padding: 50px;
+}
+
+h1,
+h3 {
+  font-size: xx-large;
 }
