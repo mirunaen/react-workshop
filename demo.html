@@ -14,7 +14,8 @@
       render() {
         return (
           <div>
-            <h1>Hi!</h1>
+          <Greeting club={"HCM"}
+            <CookieCounter />
           </div>
         );
       }
@@ -27,14 +28,11 @@
       );
     };
 
-    const App = (props) => {
+    const Greeting = (props) => {
       const { club = "HCM" } = props;
       return <h1>Hello {club}</h1>;
     };
 
-    ReactDOM.render(
-      <App club={"Accelerate"} />,
-      document.getElementById("root")
-    );
+    ReactDOM.render(<App />, document.getElementById("root"));
   </script>
 </body>
