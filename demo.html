@@ -12,13 +12,24 @@
         this.state = {
           numCookies: 1,
         };
+
+        this.handleCookieUpdate = this.handleCookieUpdate.bind(this);
+      }
+      handleCookieUpdate(numCookies) {
+        this.setState({
+          numCookies: numCookies,
+        });
       }
       render() {
+        const { numCookies } = this.state;
         return (
           <div>
             <Greeting club={"HCM"} />
-            <CookieCounter numCookies={this.state.numCookies} />
-            <AddRemoveCookie />
+            <CookieCounter numCookies={numCookies} />
+            <AddRemoveCookie
+              numCookies={numCookies}
+              onCookieUpdate={this.handleCookieUpdate}
+            />
           </div>
         );
       }
@@ -26,14 +37,20 @@
 
     class AddRemoveCookie extends React.Component {
       render() {
+        const { onCookieUpdate, numCookies } = this.props;
         return (
           <div>
-            <button> Add cookie</button>
-            <button> Remove cookie</button>
+            <button onClick={() => onCookieUpdate(Number(numCookies) + 1)}>
+              Add cookie.
+            </button>
+            <button onClick={() => onCookieUpdate(numCookies - 1)}>
+              Eat cookie.
+            </button>
           </div>
         );
       }
     }
+
     const CookieCounter = ({ numCookies = 0 }) => {
       return (
         <h3>
@@ -43,7 +60,7 @@
     };
 
     const Greeting = (props) => {
-      const { club = "HCM" } = props;
+      const { club = "Beautiful people" } = props;
       return <h1>Hello {club}</h1>;
     };
 
