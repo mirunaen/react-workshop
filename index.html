@@ -40,7 +40,7 @@
         const { onCookieUpdate, numCookies } = this.props;
         return (
           <div>
-            <button onClick={() => onCookieUpdate(Number(numCookies) + 1)}>
+            <button onClick={() => onCookieUpdate(numCookies + 1)}>
               Add cookie.
             </button>
             <button onClick={() => onCookieUpdate(numCookies - 1)}>
@@ -61,7 +61,27 @@
 
     const Greeting = (props) => {
       const { club = "Beautiful people" } = props;
-      return <h1>Hello {club}</h1>;
+      return (
+        <div>
+          <h1
+            style={{
+              display: "inline",
+            }}
+          >
+            Hello{" "}
+          </h1>
+          <h1
+            style={{
+              textDecorationLine: "underline",
+              color: "red",
+              display: "inline",
+            }}
+          >
+            {" "}
+            {club}
+          </h1>
+        </div>
+      );
     };
 
     ReactDOM.render(<App />, document.getElementById("root"));
