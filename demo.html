@@ -5,10 +5,36 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
-    function App() {
-      return "Hello";
-    }
+    class App extends React.component {
+      constructor(props) {
+        super(props);
 
-    ReactDOM.render(<App />, document.getElementById("root"));
+        console.log("Hellos");
+      }
+      render() {
+        return (
+          <div>
+            <h1>Hi!</h1>
+          </div>
+        );
+      }
+    }
+    const CookieCounter = ({ numCookies = 0 }) => {
+      return (
+        <h3>
+          We have {numCookies} {numCookies === 1 ? "cookie" : "cookies"}{" "}
+        </h3>
+      );
+    };
+
+    const App = (props) => {
+      const { club = "HCM" } = props;
+      return <h1>Hello {club}</h1>;
+    };
+
+    ReactDOM.render(
+      <App club={"Accelerate"} />,
+      document.getElementById("root")
+    );
   </script>
 </body>
